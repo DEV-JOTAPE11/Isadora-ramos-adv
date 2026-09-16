@@ -1,0 +1,471 @@
+@import 'tailwindcss';
+
+/* ===========================================================================
+   DESIGN TOKENS — Isadora Ramos Advocacia
+
+   A marca dela já é verde + ouro (ver o perfil @isadoraramosadv), mas o verde
+   do Instagram é um oliva acinzentado e sem brilho: em tela grande ele fica
+   pesado e puxa a peça para o lado "militar". Trocado por uma rampa de
+   ESMERALDA de verdade — mesmo matiz-família, croma bem mais alto no meio da
+   escala. É o verde que combina com o dourado do logotipo (o par
+   esmeralda/ouro é o mesmo de encadernação jurídica antiga) e é o que dá o ar
+   de autoridade que o briefing pede.
+
+   A tipografia e o vocabulário de componentes vêm do projeto `lp-adv`
+   (Outfit / Inter / Cormorant Garamond, `.btn-advocacia`, `.reveal`).
+   ======================================================================== */
+
+@theme inline {
+  /* -- famílias ---------------------------------------------------------
+     Precisam ficar em `@theme inline`: as variáveis do next/font são
+     declaradas no <html>, e com `@theme` normal o Tailwind emitiria
+     `--font-display: var(--fonte-outfit)` no :root, onde a variável ainda
+     não existe — a fonte cairia para a do sistema. */
+  --font-display: var(--fonte-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--fonte-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--fonte-cormorant), Georgia, serif;
+
+  /* -- esmeralda (cor institucional) ------------------------------------ */
+  --color-esmeralda-950: #05170f;
+  --color-esmeralda-900: #08261a;
+  --color-esmeralda-850: #0a3122;
+  --color-esmeralda-800: #0d3d2b;
+  --color-esmeralda-700: #115437;
+  --color-esmeralda-600: #167049;
+  --color-esmeralda-500: #1c8f5d;
+  --color-esmeralda-400: #35ac77;
+  --color-esmeralda-300: #6cc79b;
+  --color-esmeralda-200: #a6dfc3;
+  --color-esmeralda-100: #d5f0e2;
+  --color-esmeralda-50: #eff9f4;
+
+  /* -- ouro (extraído do logotipo `colorido-.png`) ---------------------- */
+  --color-ouro-700: #8c6a25;
+  --color-ouro-600: #a8812f;
+  --color-ouro-500: #c6a24b;
+  --color-ouro-400: #d9bc72;
+  --color-ouro-300: #e7d3a2;
+  --color-ouro-200: #f1e5c7;
+  --color-ouro-100: #f8f1e0;
+
+  /* -- neutros ----------------------------------------------------------
+     Não são cinzas puros: têm o mesmo matiz do esmeralda em croma baixo,
+     para que texto e superfícies pertençam à mesma família da marca. */
+  --color-osso: #f7f6f2;
+  --color-nevoa: #eceeea;
+  --color-grafite: #3f4744;
+  --color-grafite-claro: #626b67;
+  --color-tinta: #16201b;
+
+  /* -- linha de base ---------------------------------------------------- */
+  --text-base--line-height: 1.6;
+  --text-3xl--line-height: 1.2;
+
+  --ease-expo-out: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-suave: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --radius-shell: 40px;
+}
+
+/* ===========================================================================
+   Base
+   ======================================================================== */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* compensa o header fixo ao navegar por âncora */
+    scroll-padding-top: 6rem;
+    /* evita o salto lateral quando a barra de rolagem aparece */
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    background-color: var(--color-white);
+    color: var(--color-tinta);
+    font-family: var(--fonte-inter), ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* nenhuma seção pode estourar a largura da viewport */
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-esmeralda-100);
+    color: var(--color-esmeralda-900);
+  }
+
+  /* Foco visível em tudo que é interativo. */
+  :focus-visible {
+    outline: 2px solid var(--color-esmeralda-500);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+/* ===========================================================================
+   Componentes
+   ======================================================================== */
+
+@layer components {
+  /* Header em estado "rolado" — vidro escuro sobre o conteúdo. */
+  .vidro-nav {
+    background-color: color-mix(in oklab, var(--color-esmeralda-950) 88%, transparent);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid color-mix(in oklab, var(--color-ouro-400) 18%, transparent);
+  }
+
+  /*
+   * Botão-assinatura, herdado de `lp-adv`: pílula transparente com borda
+   * dourada e um retângulo esmeralda que cresce da direita para a esquerda no
+   * hover. O ícone precisa da classe `.icone` para deslizar junto.
+   */
+  .btn-advocacia {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    overflow: hidden;
+    border: 1px solid var(--color-ouro-500);
+    border-radius: 9999px;
+    padding-inline: 2.25rem;
+    padding-block: 1rem;
+    font-family: var(--fonte-inter), ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-esmeralda-900);
+    background-color: transparent;
+    transition:
+      color 0.5s var(--ease-suave),
+      border-color 0.5s var(--ease-suave);
+  }
+
+  .btn-advocacia::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: var(--color-esmeralda-800);
+    transform-origin: 100%;
+    scale: 0% 1;
+    transition: scale 0.6s var(--ease-expo-out);
+  }
+
+  .btn-advocacia .icone {
+    transition: translate 0.4s var(--ease-suave);
+  }
+
+  .btn-advocacia:hover {
+    border-color: var(--color-esmeralda-800);
+    color: var(--color-ouro-300);
+  }
+
+  .btn-advocacia:hover::before {
+    transform-origin: 0;
+    scale: 100% 1;
+  }
+
+  .btn-advocacia:hover .icone {
+    translate: 0.375rem 0;
+  }
+
+  .btn-advocacia:active {
+    translate: 0 1px;
+  }
+
+  /* Variante sólida — usada nos CTAs sobre fundo claro. */
+  .btn-solido {
+    border-color: transparent;
+    background-color: var(--color-esmeralda-800);
+    color: var(--color-ouro-200);
+  }
+
+  .btn-solido::before {
+    background-color: var(--color-esmeralda-600);
+  }
+
+  .btn-solido:hover {
+    border-color: transparent;
+    color: var(--color-white);
+  }
+
+  /* Sobrelinha de seção — versalete dourado com filete. */
+  .sobrelinha {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--color-ouro-600);
+  }
+
+  .sobrelinha::before {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background-color: currentColor;
+    opacity: 0.6;
+  }
+
+  /* Sobre fundo escuro o ouro-600 não tem contraste; sobe para o 400. */
+  .sobrelinha-clara {
+    color: var(--color-ouro-400);
+  }
+
+  /* Filete dourado degradê — separador entre blocos escuros. */
+  .filete-ouro {
+    height: 1px;
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in oklab, var(--color-ouro-500) 55%, transparent),
+      transparent
+    );
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ===========================================================================
+   ENTRADAS AO ROLAR
+   Duas famílias, exatamente como nos projetos de referência:
+
+   1. `.reveal`  — de `lp-adv`. CSS puro dirigido por IntersectionObserver,
+      dispara uma vez, só opacity + transform. É o que carrega a página
+      inteira, porque é barato.
+   2. `.blur-reveal-*` e `.scroll-float-*` — de `almeida-imports-site`. GSAP
+      + ScrollTrigger com `scrub`: o progresso vem da rolagem, não de um
+      relógio. Reservado aos títulos, onde o efeito se paga.
+   ======================================================================== */
+
+@layer utilities {
+  /*
+   * O estado escondido só entra quando o JS está de fato ativo (a classe `js`
+   * é posta pelo script inline do layout, antes da primeira pintura). Sem JS
+   * — ou se o bundle falhar — o conteúdo fica visível em vez de preso em
+   * opacity: 0. Vale também para rastreadores.
+   */
+  .js .reveal {
+    opacity: 0;
+    transform: translate3d(var(--reveal-x, 0), var(--reveal-y, 24px), 0) scale(var(--reveal-s, 1));
+    transition:
+      opacity var(--reveal-d, 700ms) var(--ease-expo-out) var(--reveal-delay, 0ms),
+      transform var(--reveal-d, 700ms) var(--ease-expo-out) var(--reveal-delay, 0ms);
+    /*
+     * Sem `will-change` de propósito: são ~30 blocos na página, e promover 30
+     * camadas de composição de uma vez custa mais em style/layout do que
+     * economiza na pintura. opacity e transform já são compositáveis.
+     */
+  }
+
+  .js .reveal[data-visible='true'] {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  /*
+   * CARROSSEL: QUEM ANIMA É A TRILHA, NÃO CADA CARD.
+   *
+   * O IntersectionObserver recorta o retângulo de interseção por TODO ancestral
+   * que corta conteúdo — e a trilha do carrossel é `overflow-x: auto`, ou seja,
+   * um deles. Um card que está fora da vista horizontal intersecta a viewport
+   * em 0%, por mais que se alargue o `rootMargin` do observer: a conta é feita
+   * depois do recorte. Resultado: só o primeiro card aparecia, e os outros
+   * ficavam presos em `opacity: 0` até serem arrastados até a vista — e ainda
+   * levavam 600ms para surgir, já parados na tela.
+   *
+   * Abaixo de `sm` os cards entram todos de uma vez e a entrada fica por conta
+   * do bloco que envolve a trilha. Acima de `sm` é o contrário: a trilha virou
+   * grade, não recorta mais nada, e a cascata card a card volta a valer.
+   */
+  @media (max-width: 639px) {
+    .js .trilha-carrossel .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .js .reveal.reveal-so-mobile {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /*
+   * Entrada do hero — animação de LOAD, não de scroll. O hero nasce na
+   * primeira dobra: não há o que observar, o gatilho é a própria pintura.
+   * Isso mantém o <Hero> como Server Component, sem um grama de JS.
+   *
+   * Não passa pelo guard `.js`: o estado final do keyframe é o estado natural
+   * do elemento, então mesmo sem CSS aplicado tudo aparece.
+   */
+  @keyframes heroSobe {
+    from {
+      opacity: 0;
+      transform: translate3d(0, var(--hero-sobe, 30px), 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .hero-in {
+    animation: heroSobe var(--hero-duracao, 1100ms) var(--ease-expo-out) var(--hero-delay, 0ms) both;
+  }
+
+  /* No mobile a viewport é curta: o mesmo deslocamento pareceria um salto. */
+  @media (max-width: 767px) {
+    .hero-in {
+      --hero-sobe: 18px;
+    }
+  }
+
+  /*
+   * O fundo acomoda junto, mais devagar e por baixo do texto. Parte de
+   * opacity .3 (nunca de 0) de propósito: zero tiraria a imagem da conta do
+   * LCP e mandaria a métrica para o fim da animação.
+   */
+  @keyframes heroAssenta {
+    from {
+      opacity: 0.3;
+      scale: 1.14;
+    }
+    to {
+      opacity: 0.55;
+      scale: 1.06;
+    }
+  }
+
+  .hero-bg-in {
+    animation: heroAssenta 2400ms var(--ease-expo-out) both;
+  }
+
+  /* -- almeida: título revelado caractere a caractere -------------------
+     Os <span> são INLINE puros, sem caixa própria: não interferem na quebra
+     de linha nem no kerning, então o texto ocupa o mesmo espaço com ou sem
+     animação. Só opacity e filter mudam, e nenhum dos dois move o layout. */
+  .blur-reveal-char {
+    will-change: opacity, filter;
+  }
+
+  /* -- almeida: título que flutua para cima letra a letra ---------------
+     Aqui cada caractere é inline-block (precisa de caixa para o transform),
+     por isso vêm agrupados em `.scroll-float-word` — senão a palavra
+     quebraria no meio da linha durante a entrada. */
+  .scroll-float-word {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .scroll-float-char {
+    display: inline-block;
+    will-change: opacity, transform;
+  }
+
+  .scroll-float-char.espaco {
+    width: 0.28em;
+  }
+
+  /* Anel do indicador numérico: desenha-se junto com o `.reveal` que o
+     envolve — nenhum observer extra, nenhum estado em JS. */
+  .anel-indicador {
+    stroke-dashoffset: 0;
+  }
+
+  .js .anel-indicador {
+    stroke-dashoffset: 301.6;
+    transition: stroke-dashoffset 1300ms var(--ease-expo-out) var(--anel-delay, 0ms);
+  }
+
+  .js .reveal[data-visible='true'] .anel-indicador {
+    stroke-dashoffset: 0;
+  }
+
+  /* Troca de painel (processo / carrossel) — equivale ao AnimatePresence
+     mode="wait" do original. */
+  @keyframes sobeEntrando {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 20px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .anima-painel {
+    animation: sobeEntrando 500ms var(--ease-expo-out) both;
+  }
+
+  /* Halo pulsante no botão flutuante do WhatsApp. */
+  @keyframes pulsoVerde {
+    0% {
+      box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-esmeralda-400) 60%, transparent);
+    }
+    70% {
+      box-shadow: 0 0 0 14px transparent;
+    }
+    100% {
+      box-shadow: 0 0 0 0 transparent;
+    }
+  }
+
+  .pulso-verde {
+    animation: pulsoVerde 2.6s infinite;
+  }
+}
+
+/* ===========================================================================
+   Acessibilidade — desliga todo o movimento sob prefers-reduced-motion.
+   ======================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  /*
+   * `animation: none`, e não só duração ~0: o bloco acima zera a duração mas
+   * não o `animation-delay`, e com fill-mode `both` o hero ficaria invisível
+   * durante o atraso. Sem animação, cada elemento fica no seu estado natural.
+   */
+  .hero-in,
+  .hero-bg-in,
+  .anima-painel,
+  .pulso-verde {
+    animation: none;
+  }
+}
