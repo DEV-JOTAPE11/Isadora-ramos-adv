@@ -3,11 +3,11 @@ import { cn } from '@/lib/utils';
 
 /**
  * `.btn-advocacia` — o botão-assinatura da página (ver globals.css).
- * Pílula com borda dourada e um retângulo esmeralda que cresce da direita
+ * Pílula com borda verde-lima e um retângulo verde que cresce da direita
  * para a esquerda no hover. Ícones devem receber a classe `icone` para
  * deslizar junto.
  *
- * `variante="solido"` preenche de esmeralda já em repouso — para o CTA
+ * `variante="solido"` preenche de verde já em repouso — para o CTA
  * principal sobre fundo claro, onde a pílula vazada some.
  */
 

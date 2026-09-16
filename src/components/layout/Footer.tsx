@@ -11,7 +11,7 @@ export function Footer() {
   const { endereco } = contato;
 
   return (
-    <footer className="relative overflow-hidden bg-esmeralda-950 text-white">
+    <footer className="relative overflow-hidden bg-verde-950 text-white">
       {/* Monograma gigante ao fundo, cortado pela borda — assinatura discreta. */}
       <Image
         src={ASSETS.monograma.src}
@@ -39,7 +39,7 @@ export function Footer() {
               sizes="220px"
               className="h-auto w-[196px]"
             />
-            <p className="mt-6 max-w-xs font-serif text-lg leading-snug font-light text-ouro-300 italic">
+            <p className="mt-6 max-w-xs font-display text-lg leading-snug font-medium text-ouro-300">
               {marca.tagline}.
             </p>
             <p className="mt-5 text-[13px] tracking-[0.18em] text-white/45 uppercase">
@@ -52,7 +52,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/12 text-white/70 transition-all hover:border-esmeralda-400 hover:text-esmeralda-300"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/12 text-white/70 transition-all hover:border-verde-400 hover:text-verde-300"
               >
                 <IconeWhatsApp className="h-[18px] w-[18px]" />
               </a>
@@ -61,7 +61,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/12 text-white/70 transition-all hover:border-ouro-400 hover:text-ouro-300"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/12 text-white/70 transition-all hover:border-verde-400 hover:text-ouro-300"
               >
                 <IconeInstagram className="h-[18px] w-[18px]" />
               </a>
@@ -150,7 +150,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="filete-ouro my-12" />
+        <div className="filete-verde my-12" />
 
         {/* Aviso da OAB: o site é informativo, não é anúncio de captação. */}
         <p className="max-w-4xl text-[12px] leading-relaxed font-light text-white/35">

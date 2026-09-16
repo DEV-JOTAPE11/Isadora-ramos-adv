@@ -10,7 +10,7 @@ import { IconeWhatsApp } from '@/components/ui/Icones';
 
 /**
  * Header fixo. Em repouso é transparente sobre o hero escuro; ao rolar ganha
- * o vidro esmeralda (`.vidro-nav`).
+ * o vidro verde (`.vidro-nav`).
  *
  * O estado de rolagem vem de um listener `passive` com guarda de igualdade:
  * `setRolado` só é chamado quando o booleano de fato muda, então a maior parte
@@ -88,7 +88,7 @@ export function Header() {
             href={contato.whatsappAgendar}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-2.5 rounded-full border border-ouro-500/60 px-5 py-2.5 text-[11px] font-medium tracking-[0.16em] text-ouro-300 uppercase transition-all hover:border-ouro-400 hover:bg-ouro-500/10 sm:inline-flex"
+            className="hidden items-center gap-2.5 rounded-full border border-verde-500/60 px-5 py-2.5 text-[11px] font-medium tracking-[0.16em] text-ouro-300 uppercase transition-all hover:border-verde-400 hover:bg-verde-500/10 sm:inline-flex"
           >
             <IconeWhatsApp className="h-4 w-4" aria-hidden="true" />
             Falar agora
@@ -100,7 +100,7 @@ export function Header() {
             aria-expanded={menuAberto}
             aria-controls="menu-mobile"
             aria-label={menuAberto ? 'Fechar menu' : 'Abrir menu'}
-            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-white/15 text-white transition-colors hover:border-ouro-400 hover:text-ouro-300 lg:hidden"
+            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-white/15 text-white transition-colors hover:border-verde-400 hover:text-ouro-300 lg:hidden"
           >
             {menuAberto ? <X size={18} /> : <Menu size={18} />}
           </button>
@@ -139,7 +139,7 @@ export function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMenuAberto(false)}
-                className="inline-flex items-center gap-2.5 rounded-full bg-esmeralda-600 px-6 py-3 text-[12px] font-medium tracking-[0.16em] text-white uppercase"
+                className="inline-flex items-center gap-2.5 rounded-full bg-verde-600 px-6 py-3 text-[12px] font-medium tracking-[0.16em] text-white uppercase"
               >
                 <IconeWhatsApp className="h-4 w-4" aria-hidden="true" />
                 Falar no WhatsApp

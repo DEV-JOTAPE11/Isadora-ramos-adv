@@ -21,7 +21,7 @@ import { ASSETS } from '@/lib/assets';
  */
 export function Compromissos() {
   return (
-    <section className="relative overflow-hidden bg-esmeralda-950 py-24 md:py-32">
+    <section className="relative overflow-hidden bg-verde-950 py-24 md:py-32">
       <Image
         src={ASSETS.texturaBiblioteca.src}
         alt=""
@@ -42,7 +42,7 @@ export function Compromissos() {
             as="h2"
             className="font-display text-[2rem] leading-[1.06] font-semibold tracking-tight text-white sm:text-5xl md:text-[3.25rem]"
           />
-          <p className="font-serif text-[2.1rem] leading-[1.08] font-light text-ouro-400 italic sm:text-5xl md:text-[3.4rem]">
+          <p className="font-destaque uppercase text-[2.1rem] leading-[1.08] text-ouro-400 sm:text-5xl md:text-[3.4rem]">
             {compromissos.tituloDestaque}
           </p>
         </div>
@@ -55,7 +55,7 @@ export function Compromissos() {
               y={28}
               duracao={650}
               atraso={i * 110}
-              className="group relative overflow-hidden rounded-[26px] border border-white/8 bg-white/[0.035] p-8 transition-all duration-500 hover:border-ouro-500/35 hover:bg-white/[0.06]"
+              className="group relative overflow-hidden rounded-[26px] border border-white/8 bg-white/[0.035] p-8 transition-all duration-500 hover:border-verde-500/35 hover:bg-white/[0.06]"
             >
               {/* Numeração grande e translúcida — dá hierarquia ao card sem
                   precisar de mais um ícone. */}

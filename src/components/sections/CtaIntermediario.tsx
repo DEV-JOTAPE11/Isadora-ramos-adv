@@ -16,7 +16,7 @@ import { ASSETS } from '@/lib/assets';
  */
 export function CtaIntermediario() {
   return (
-    <section className="relative overflow-hidden bg-esmeralda-800 py-20 md:py-24">
+    <section className="relative overflow-hidden bg-verde-800 py-20 md:py-24">
       <Image
         src={ASSETS.livros.src}
         alt=""
@@ -28,7 +28,7 @@ export function CtaIntermediario() {
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-r from-esmeralda-900 via-esmeralda-800/85 to-esmeralda-800/40"
+        className="absolute inset-0 bg-gradient-to-r from-verde-900 via-verde-800/85 to-verde-800/40"
       />
 
       <Container className="relative z-10">
@@ -47,7 +47,7 @@ export function CtaIntermediario() {
               href={contato.whatsappAgendar}
               target="_blank"
               rel="noopener noreferrer"
-              className="shrink-0 border-ouro-400! bg-ouro-500/10 text-ouro-200! hover:border-ouro-300! hover:text-white!"
+              className="shrink-0 border-verde-400! bg-verde-500/10 text-ouro-200! hover:border-verde-300! hover:text-white!"
             >
               <IconeWhatsApp className="icone h-[18px] w-[18px]" aria-hidden="true" />
               {ctaIntermediario.cta}

@@ -10,7 +10,7 @@ import { ASSETS } from '@/lib/assets';
 /**
  * "Quem sou" — o retrato e a biografia.
  *
- * Fundo esmeralda escuro de propósito: o retrato da Dra. Isadora já foi
+ * Fundo verde-escuro de propósito: o retrato da Dra. Isadora já foi
  * fotografado sobre verde (é o padrão do Instagram dela), então o recorte
  * funde com a seção em vez de aparecer como um selo colado. É também o
  * contraponto escuro no meio de uma página clara — a página inteira alterna
@@ -18,7 +18,7 @@ import { ASSETS } from '@/lib/assets';
  */
 export function Sobre() {
   return (
-    <section id="sobre" className="relative overflow-hidden bg-esmeralda-950 py-24 md:py-32">
+    <section id="sobre" className="relative overflow-hidden bg-verde-950 py-24 md:py-32">
       {/* Textura de fundo, quase imperceptível: tira o chapado do bloco escuro. */}
       <Image
         src={ASSETS.texturaEsmeralda.src}
@@ -41,13 +41,13 @@ export function Sobre() {
             className="relative mx-auto max-w-sm lg:mx-0"
           >
             <div className="relative">
-              {/* Moldura dourada deslocada — o truque clássico de retrato de
+              {/* Moldura verde-lima deslocada — o truque clássico de retrato de
                   escritório. Puro CSS, sem imagem extra. */}
               <span
                 aria-hidden="true"
-                className="absolute -top-4 -left-4 h-full w-full rounded-[28px] border border-ouro-500/35"
+                className="absolute -top-4 -left-4 h-full w-full rounded-[28px] border border-verde-500/35"
               />
-              <div className="relative overflow-hidden rounded-[28px] bg-esmeralda-900">
+              <div className="relative overflow-hidden rounded-[28px] bg-verde-900">
                 <Image
                   src={ASSETS.isadoraRetrato.src}
                   alt={ASSETS.isadoraRetrato.alt}
@@ -58,12 +58,12 @@ export function Sobre() {
                 />
                 <div
                   aria-hidden="true"
-                  className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-esmeralda-950 to-transparent"
+                  className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-verde-950 to-transparent"
                 />
               </div>
 
               <div className="absolute inset-x-6 bottom-6 text-center">
-                <p className="font-serif text-xl font-light text-ouro-300 italic">
+                <p className="font-display text-xl font-medium text-ouro-300">
                   {marca.tratamento}
                 </p>
                 <p className="mt-1 text-[10px] tracking-[0.3em] text-white/45 uppercase">
@@ -82,7 +82,7 @@ export function Sobre() {
               as="h2"
               className="font-display text-[2rem] leading-[1.06] font-semibold tracking-tight text-white sm:text-5xl md:text-[3.25rem]"
             />
-            <p className="mb-8 font-serif text-[2.1rem] leading-[1.08] font-light text-ouro-400 italic sm:text-5xl md:text-[3.4rem]">
+            <p className="mb-8 font-destaque uppercase text-[2.1rem] leading-[1.08] text-ouro-400 sm:text-5xl md:text-[3.4rem]">
               {sobre.tituloDestaque}
             </p>
 
@@ -112,8 +112,8 @@ export function Sobre() {
             </Revelar>
 
             <Revelar y={20} duracao={700} atraso={280}>
-              <blockquote className="mt-10 border-l-2 border-ouro-500/50 pl-6">
-                <p className="font-serif text-lg leading-snug font-light text-ouro-200 italic md:text-xl">
+              <blockquote className="mt-10 border-l-2 border-verde-500/50 pl-6">
+                <p className="font-display text-lg leading-snug font-medium text-ouro-200 md:text-xl">
                   “{sobre.citacao}”
                 </p>
               </blockquote>
@@ -122,7 +122,7 @@ export function Sobre() {
                 href={contato.whatsappAgendar}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-10 border-ouro-500! text-ouro-200! hover:border-ouro-400! hover:text-white!"
+                className="mt-10 border-verde-500! text-ouro-200! hover:border-verde-400! hover:text-white!"
               >
                 <IconeWhatsApp className="icone h-[18px] w-[18px]" aria-hidden="true" />
                 {sobre.cta}

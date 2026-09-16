@@ -27,7 +27,7 @@ export function PorQue() {
               as="h2"
               className="font-display text-[1.9rem] leading-[1.08] font-semibold tracking-tight text-tinta sm:text-[2.6rem] md:text-[2.9rem]"
             />
-            <p className="font-serif text-[2rem] leading-[1.1] font-light text-ouro-600 italic sm:text-[2.7rem] md:text-[3rem]">
+            <p className="font-destaque uppercase text-[2rem] leading-[1.1] text-ouro-600 sm:text-[2.7rem] md:text-[3rem]">
               {porQue.tituloDestaque}
             </p>
 
@@ -47,16 +47,16 @@ export function PorQue() {
                   sizes="(min-width: 1024px) 520px, 100vw"
                   className="h-[260px] w-full object-cover md:h-[320px]"
                 />
-                {/* Véu esmeralda: alinha a foto (cinza-azulada) à paleta. */}
+                {/* Véu verde: alinha a foto (cinza-azulada) à paleta. */}
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-esmeralda-900/35 mix-blend-multiply"
+                  className="absolute inset-0 bg-verde-900/35 mix-blend-multiply"
                 />
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-esmeralda-950/80 to-transparent"
+                  className="absolute inset-0 bg-gradient-to-t from-verde-950/80 to-transparent"
                 />
-                <p className="absolute inset-x-8 bottom-7 font-serif text-lg leading-snug font-light text-ouro-200 italic">
+                <p className="absolute inset-x-8 bottom-7 font-display text-lg leading-snug font-medium text-ouro-200">
                   Cada caso tem um nome, uma história e uma pessoa esperando resposta.
                 </p>
               </div>
@@ -67,7 +67,7 @@ export function PorQue() {
             Os pilares são <dl> e não <ul>: cada item é literalmente um termo e
             a sua definição, e leitores de tela anunciam a relação.
           */}
-          <dl className="grid gap-px overflow-hidden rounded-[28px] bg-esmeralda-100 sm:grid-cols-2">
+          <dl className="grid gap-px overflow-hidden rounded-[28px] bg-verde-100 sm:grid-cols-2">
             {porQue.pilares.map((pilar, i) => {
               const Icone = ICONES_PILAR[pilar.icone];
               return (
@@ -76,9 +76,9 @@ export function PorQue() {
                   y={24}
                   duracao={650}
                   atraso={i * 110}
-                  className="group bg-white p-9 transition-colors duration-500 hover:bg-esmeralda-50 md:p-10"
+                  className="group bg-white p-9 transition-colors duration-500 hover:bg-verde-50 md:p-10"
                 >
-                  <span className="mb-7 flex h-12 w-12 items-center justify-center rounded-full border border-ouro-400/50 text-ouro-600 transition-all duration-500 group-hover:border-esmeralda-700 group-hover:bg-esmeralda-800 group-hover:text-ouro-300">
+                  <span className="mb-7 flex h-12 w-12 items-center justify-center rounded-full border border-verde-400/50 text-ouro-600 transition-all duration-500 group-hover:border-verde-700 group-hover:bg-verde-800 group-hover:text-ouro-300">
                     <Icone className="h-6 w-6" aria-hidden="true" />
                   </span>
 

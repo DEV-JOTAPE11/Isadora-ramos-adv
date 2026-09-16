@@ -3,43 +3,40 @@
 /* ===========================================================================
    DESIGN TOKENS — Isadora Ramos Advocacia
 
-   A marca dela já é verde + ouro (ver o perfil @isadoraramosadv), mas o verde
-   do Instagram é um oliva acinzentado e sem brilho: em tela grande ele fica
-   pesado e puxa a peça para o lado "militar". Trocado por uma rampa de
-   ESMERALDA de verdade — mesmo matiz-família, croma bem mais alto no meio da
-   escala. É o verde que combina com o dourado do logotipo (o par
-   esmeralda/ouro é o mesmo de encadernação jurídica antiga) e é o que dá o ar
-   de autoridade que o briefing pede.
+   Tipografia e verde seguem o projeto `Fruity-main`: Barlow Condensed nos
+   títulos, Barlow no corpo e Anton em caixa-alta nos destaques — no lugar da
+   Cormorant itálica, que dava um ar antiquado à página.
 
-   A tipografia e o vocabulário de componentes vêm do projeto `lp-adv`
-   (Outfit / Inter / Cormorant Garamond, `.btn-advocacia`, `.reveal`).
+   O verde é o lima #6ece33 (400) sobre verdes quase pretos (950–800). Os tons
+   do meio (700–600) existem para texto verde sobre fundo claro, onde o lima
+   puro não tem contraste. As LETRAS de destaque continuam no ouro do logotipo.
    ======================================================================== */
 
 @theme inline {
   /* -- famílias ---------------------------------------------------------
      Precisam ficar em `@theme inline`: as variáveis do next/font são
      declaradas no <html>, e com `@theme` normal o Tailwind emitiria
-     `--font-display: var(--fonte-outfit)` no :root, onde a variável ainda
+     `--font-display: var(--fonte-…)` no :root, onde a variável ainda
      não existe — a fonte cairia para a do sistema. */
-  --font-display: var(--fonte-outfit), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--fonte-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--fonte-cormorant), Georgia, serif;
+  --font-display: var(--fonte-barlow-condensed), 'Arial Narrow', ui-sans-serif, sans-serif;
+  --font-sans: var(--fonte-barlow), ui-sans-serif, system-ui, sans-serif;
+  --font-destaque: var(--fonte-anton), var(--fonte-barlow-condensed), Impact, sans-serif;
 
-  /* -- esmeralda (cor institucional) ------------------------------------ */
-  --color-esmeralda-950: #05170f;
-  --color-esmeralda-900: #08261a;
-  --color-esmeralda-850: #0a3122;
-  --color-esmeralda-800: #0d3d2b;
-  --color-esmeralda-700: #115437;
-  --color-esmeralda-600: #167049;
-  --color-esmeralda-500: #1c8f5d;
-  --color-esmeralda-400: #35ac77;
-  --color-esmeralda-300: #6cc79b;
-  --color-esmeralda-200: #a6dfc3;
-  --color-esmeralda-100: #d5f0e2;
-  --color-esmeralda-50: #eff9f4;
+  /* -- verde (cor institucional, do Fruity) ----------------------------- */
+  --color-verde-950: #0a0d07;
+  --color-verde-900: #10150c;
+  --color-verde-850: #141a0f;
+  --color-verde-800: #1b2412;
+  --color-verde-700: #3f7a1e;
+  --color-verde-600: #4e9626;
+  --color-verde-500: #5cb52c;
+  --color-verde-400: #6ece33;
+  --color-verde-300: #8ae24a;
+  --color-verde-200: #b8ee8e;
+  --color-verde-100: #dcf5c7;
+  --color-verde-50: #f1fae9;
 
-  /* -- ouro (extraído do logotipo `colorido-.png`) ---------------------- */
+  /* -- ouro (extraído do logotipo) — cor das letras de destaque ---------- */
   --color-ouro-700: #8c6a25;
   --color-ouro-600: #a8812f;
   --color-ouro-500: #c6a24b;
@@ -49,7 +46,7 @@
   --color-ouro-100: #f8f1e0;
 
   /* -- neutros ----------------------------------------------------------
-     Não são cinzas puros: têm o mesmo matiz do esmeralda em croma baixo,
+     Não são cinzas puros: têm o mesmo matiz do verde em croma baixo,
      para que texto e superfícies pertençam à mesma família da marca. */
   --color-osso: #f7f6f2;
   --color-nevoa: #eceeea;
@@ -83,7 +80,7 @@
   body {
     background-color: var(--color-white);
     color: var(--color-tinta);
-    font-family: var(--fonte-inter), ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--fonte-barlow), ui-sans-serif, system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     /* nenhuma seção pode estourar a largura da viewport */
@@ -91,13 +88,13 @@
   }
 
   ::selection {
-    background-color: var(--color-esmeralda-100);
-    color: var(--color-esmeralda-900);
+    background-color: var(--color-verde-100);
+    color: var(--color-verde-900);
   }
 
   /* Foco visível em tudo que é interativo. */
   :focus-visible {
-    outline: 2px solid var(--color-esmeralda-500);
+    outline: 2px solid var(--color-verde-500);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -110,16 +107,16 @@
 @layer components {
   /* Header em estado "rolado" — vidro escuro sobre o conteúdo. */
   .vidro-nav {
-    background-color: color-mix(in oklab, var(--color-esmeralda-950) 88%, transparent);
+    background-color: color-mix(in oklab, var(--color-verde-950) 88%, transparent);
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
-    border-bottom: 1px solid color-mix(in oklab, var(--color-ouro-400) 18%, transparent);
+    border-bottom: 1px solid color-mix(in oklab, var(--color-verde-400) 18%, transparent);
   }
 
   /*
-   * Botão-assinatura, herdado de `lp-adv`: pílula transparente com borda
-   * dourada e um retângulo esmeralda que cresce da direita para a esquerda no
-   * hover. O ícone precisa da classe `.icone` para deslizar junto.
+   * Botão-assinatura: pílula com borda verde-lima e um preenchimento lima que
+   * cresce da direita para a esquerda no hover (tipografia do `Fruity-main`).
+   * O ícone precisa da classe `.icone` para deslizar junto.
    */
   .btn-advocacia {
     position: relative;
@@ -129,16 +126,16 @@
     justify-content: center;
     gap: 0.75rem;
     overflow: hidden;
-    border: 1px solid var(--color-ouro-500);
+    border: 1px solid var(--color-verde-400);
     border-radius: 9999px;
     padding-inline: 2.25rem;
     padding-block: 1rem;
-    font-family: var(--fonte-inter), ui-sans-serif, system-ui, sans-serif;
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
+    font-family: var(--fonte-barlow-condensed), ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--color-esmeralda-900);
+    color: var(--color-verde-900);
     background-color: transparent;
     transition:
       color 0.5s var(--ease-suave),
@@ -150,7 +147,7 @@
     position: absolute;
     inset: 0;
     z-index: -1;
-    background-color: var(--color-esmeralda-800);
+    background-color: var(--color-verde-400);
     transform-origin: 100%;
     scale: 0% 1;
     transition: scale 0.6s var(--ease-expo-out);
@@ -161,8 +158,8 @@
   }
 
   .btn-advocacia:hover {
-    border-color: var(--color-esmeralda-800);
-    color: var(--color-ouro-300);
+    border-color: var(--color-verde-400);
+    color: var(--color-verde-950);
   }
 
   .btn-advocacia:hover::before {
@@ -181,17 +178,18 @@
   /* Variante sólida — usada nos CTAs sobre fundo claro. */
   .btn-solido {
     border-color: transparent;
-    background-color: var(--color-esmeralda-800);
-    color: var(--color-ouro-200);
+    background-color: var(--color-verde-400);
+    color: var(--color-verde-950);
+    box-shadow: 0 10px 30px -10px rgb(110 206 51 / 0.6);
   }
 
   .btn-solido::before {
-    background-color: var(--color-esmeralda-600);
+    background-color: var(--color-verde-300);
   }
 
   .btn-solido:hover {
     border-color: transparent;
-    color: var(--color-white);
+    color: var(--color-verde-950);
   }
 
   /* Sobrelinha de seção — versalete dourado com filete. */
@@ -214,18 +212,18 @@
     opacity: 0.6;
   }
 
-  /* Sobre fundo escuro o ouro-600 não tem contraste; sobe para o 400. */
+  /* Sobre fundo escuro o ouro-600 perde contraste; sobe para o 400. */
   .sobrelinha-clara {
     color: var(--color-ouro-400);
   }
 
-  /* Filete dourado degradê — separador entre blocos escuros. */
-  .filete-ouro {
+  /* Filete verde degradê — separador entre blocos escuros. */
+  .filete-verde {
     height: 1px;
     background-image: linear-gradient(
       90deg,
       transparent,
-      color-mix(in oklab, var(--color-ouro-500) 55%, transparent),
+      color-mix(in oklab, var(--color-verde-500) 55%, transparent),
       transparent
     );
   }
@@ -419,7 +417,7 @@
   /* Halo pulsante no botão flutuante do WhatsApp. */
   @keyframes pulsoVerde {
     0% {
-      box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-esmeralda-400) 60%, transparent);
+      box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-verde-400) 60%, transparent);
     }
     70% {
       box-shadow: 0 0 0 14px transparent;

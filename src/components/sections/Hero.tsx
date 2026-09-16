@@ -18,7 +18,7 @@ const MEDIA_DESKTOP = '(min-width: 768px)';
 const atraso = (ms: number) => ({ '--hero-delay': `${ms}ms` }) as CSSProperties;
 
 /**
- * Hero — bloco esmeralda de altura de tela, com raio APENAS no canto inferior
+ * Hero — bloco verde-escuro de altura de tela, com raio APENAS no canto inferior
  * esquerdo (a assinatura visual herdada de `lp-adv`: a curva "corta" a seção
  * escura e revela o branco por trás).
  *
@@ -73,7 +73,7 @@ export function Hero() {
         imageSizes="100vw"
       />
 
-      <div className="absolute inset-0 z-0 overflow-hidden rounded-bl-[80px] bg-esmeralda-950 md:rounded-bl-[200px]">
+      <div className="absolute inset-0 z-0 overflow-hidden rounded-bl-[80px] bg-verde-950 md:rounded-bl-[200px]">
         <picture>
           <source media={MEDIA_DESKTOP} srcSet={srcSetDesktop} sizes="100vw" />
           <source media={MEDIA_MOBILE} srcSet={srcSetMobile} sizes="100vw" />
@@ -82,15 +82,15 @@ export function Hero() {
         </picture>
 
         {/* Duas camadas: a primeira escurece a esquerda para o texto ter
-            contraste; a segunda tinge tudo de esmeralda, para que a imagem
+            contraste; a segunda tinge tudo de verde, para que a imagem
             (que é fria e azulada) pertença à paleta da marca. */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-r from-esmeralda-950 via-esmeralda-950/70 to-transparent"
+          className="absolute inset-0 bg-gradient-to-r from-verde-950 via-verde-950/70 to-transparent"
         />
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-esmeralda-900/45 mix-blend-multiply"
+          className="absolute inset-0 bg-verde-900/45 mix-blend-multiply"
         />
       </div>
 
@@ -101,8 +101,8 @@ export function Hero() {
           </p>
 
           {/* As duas linhas do H1 entram separadas — daí `block` no lugar do <br>.
-              A segunda é Cormorant itálico dourado: é o eco tipográfico do
-              logotipo, e é o que separa esta página de um template genérico. */}
+              A segunda é Anton em caixa-alta dourada: é o contraste de peso
+              que separa esta página de um template genérico. */}
           <h1 className="mb-7 text-white">
             <span
               className="hero-in block font-display text-[2.6rem] leading-[1.05] font-semibold tracking-tight sm:text-6xl md:text-[4.25rem]"
@@ -111,7 +111,7 @@ export function Hero() {
               {hero.tituloLinha1}
             </span>
             <span
-              className="hero-in block font-serif text-[2.8rem] leading-[1.05] font-light text-ouro-400 italic sm:text-6xl md:text-[4.5rem]"
+              className="hero-in block font-destaque uppercase text-[2.8rem] leading-[1.05] text-ouro-400 sm:text-6xl md:text-[4.5rem]"
               style={atraso(220)}
             >
               {hero.tituloLinha2}
@@ -132,7 +132,7 @@ export function Hero() {
               href={contato.whatsappAgendar}
               target="_blank"
               rel="noopener noreferrer"
-              className="hero-in border-ouro-500! text-ouro-200! hover:border-ouro-400! hover:text-white!"
+              className="hero-in border-verde-500! text-ouro-200! hover:border-verde-400! hover:text-white!"
               style={atraso(440)}
             >
               <IconeWhatsApp className="icone h-[18px] w-[18px]" aria-hidden="true" />

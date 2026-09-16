@@ -96,7 +96,7 @@ export function Contato() {
                 />
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-esmeralda-900/40 mix-blend-multiply"
+                  className="absolute inset-0 bg-verde-900/40 mix-blend-multiply"
                 />
               </div>
             </Revelar>
@@ -104,7 +104,7 @@ export function Contato() {
 
           {/* canais + endereço + mapa */}
           <Revelar x={34} y={0} duracao={820} atraso={100}>
-            <div className="rounded-[32px] border border-esmeralda-100 bg-white p-8 md:p-10">
+            <div className="rounded-[32px] border border-verde-100 bg-white p-8 md:p-10">
               <ul className="grid gap-x-8 gap-y-7 sm:grid-cols-2">
                 {canais.map(({ Icone, rotulo, valor, href, externo }) => (
                   <li key={rotulo}>
@@ -115,7 +115,7 @@ export function Contato() {
                     <a
                       href={href}
                       {...(externo ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                      className="text-[15px] font-light break-all text-grafite transition-colors hover:text-esmeralda-700"
+                      className="text-[15px] font-light break-all text-grafite transition-colors hover:text-verde-700"
                     >
                       {valor}
                     </a>
@@ -123,7 +123,7 @@ export function Contato() {
                 ))}
               </ul>
 
-              <div className="filete-ouro my-9" />
+              <div className="filete-verde my-9" />
 
               <div className="grid gap-7 sm:grid-cols-2">
                 <div>
@@ -155,7 +155,7 @@ export function Contato() {
                 </div>
               </div>
 
-              <div className="mt-9 overflow-hidden rounded-[22px] border border-esmeralda-100">
+              <div className="mt-9 overflow-hidden rounded-[22px] border border-verde-100">
                 <iframe
                   src={mapsEmbed}
                   title={`Mapa — ${enderecoCompleto}`}

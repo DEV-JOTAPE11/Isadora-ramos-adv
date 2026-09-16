@@ -141,7 +141,7 @@ export function CarrosselMobile({ children, total, rotulo, dica, className }: Pr
 
       {/* Controles — só existem enquanto a trilha rola. */}
       <div className="mt-4 flex items-center gap-4 sm:hidden">
-        <p className="shrink-0 text-[11px] font-medium tracking-[0.18em] text-esmeralda-700 tabular-nums">
+        <p className="shrink-0 text-[11px] font-medium tracking-[0.18em] text-verde-700 tabular-nums">
           {String(indice + 1).padStart(2, '0')}
           <span className="text-grafite-claro"> / {String(total).padStart(2, '0')}</span>
         </p>
@@ -151,9 +151,9 @@ export function CarrosselMobile({ children, total, rotulo, dica, className }: Pr
           viram uma fileira de ruído com alvo de toque pequeno demais. A barra
           diz a mesma coisa e cabe na linha do contador.
         */}
-        <div aria-hidden="true" className="h-px flex-1 overflow-hidden bg-esmeralda-100">
+        <div aria-hidden="true" className="h-px flex-1 overflow-hidden bg-verde-100">
           <span
-            className="block h-full bg-ouro-500 transition-[width] duration-500 ease-[var(--ease-expo-out)]"
+            className="block h-full bg-verde-500 transition-[width] duration-500 ease-[var(--ease-expo-out)]"
             style={{ width: `${((indice + 1) / total) * 100}%` }}
           />
         </div>
@@ -164,7 +164,7 @@ export function CarrosselMobile({ children, total, rotulo, dica, className }: Pr
             onClick={() => irPara(indice - 1)}
             disabled={indice === 0}
             aria-label="Área anterior"
-            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-esmeralda-200 text-esmeralda-700 transition-all active:scale-95 disabled:pointer-events-none disabled:opacity-30"
+            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-verde-200 text-verde-700 transition-all active:scale-95 disabled:pointer-events-none disabled:opacity-30"
           >
             <ChevronLeft size={17} aria-hidden="true" />
           </button>
@@ -173,7 +173,7 @@ export function CarrosselMobile({ children, total, rotulo, dica, className }: Pr
             onClick={() => irPara(indice + 1)}
             disabled={indice === total - 1}
             aria-label="Próxima área"
-            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-esmeralda-200 text-esmeralda-700 transition-all active:scale-95 disabled:pointer-events-none disabled:opacity-30"
+            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-verde-200 text-verde-700 transition-all active:scale-95 disabled:pointer-events-none disabled:opacity-30"
           >
             <ChevronRight size={17} aria-hidden="true" />
           </button>

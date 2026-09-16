@@ -36,7 +36,7 @@ export function Faq() {
               as="h2"
               className="font-display text-[2rem] leading-[1.06] font-semibold tracking-tight text-tinta sm:text-5xl md:text-[3.25rem]"
             />
-            <p className="font-serif text-[2.1rem] leading-[1.08] font-light text-ouro-600 italic sm:text-5xl md:text-[3.4rem]">
+            <p className="font-destaque uppercase text-[2.1rem] leading-[1.08] text-ouro-600 sm:text-5xl md:text-[3.4rem]">
               {faq.tituloDestaque}
             </p>
 

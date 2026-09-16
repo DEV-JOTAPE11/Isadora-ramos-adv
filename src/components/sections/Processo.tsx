@@ -66,7 +66,7 @@ export function Processo() {
         <div className="grid items-center gap-16 md:grid-cols-2 md:gap-20">
           <div className="relative">
             <div aria-hidden="true" className="absolute -top-28 -left-14 opacity-[0.04]">
-              <Quote size={300} className="rotate-180 text-esmeralda-900" />
+              <Quote size={300} className="rotate-180 text-verde-900" />
             </div>
 
             <Revelar x={-30} y={0} duracao={800} className="relative z-10">
@@ -77,7 +77,7 @@ export function Processo() {
               >
                 {processo.titulo}
               </h2>
-              <p className="font-serif text-[2.1rem] leading-[1.08] font-light text-ouro-600 italic sm:text-5xl md:text-[3.4rem]">
+              <p className="font-destaque uppercase text-[2.1rem] leading-[1.08] text-ouro-600 sm:text-5xl md:text-[3.4rem]">
                 {processo.tituloDestaque}
               </p>
             </Revelar>
@@ -108,8 +108,8 @@ export function Processo() {
                     className={cn(
                       'relative flex shrink-0 cursor-pointer items-center justify-center rounded-full font-display transition-all duration-500 active:scale-95',
                       selecionada
-                        ? 'z-10 h-16 w-16 scale-110 bg-esmeralda-700 text-xl text-ouro-200 shadow-[0_18px_40px_-12px_rgba(17,84,55,0.55)] ring-[9px] ring-esmeralda-100/70 md:h-20 md:w-20 md:text-2xl md:ring-[12px]'
-                        : 'h-11 w-11 border border-esmeralda-200 bg-white text-base text-esmeralda-600 hover:border-ouro-500 hover:text-ouro-600 md:h-12 md:w-12',
+                        ? 'z-10 h-16 w-16 scale-110 bg-verde-700 text-xl text-ouro-200 shadow-[0_18px_40px_-12px_rgba(63,122,30,0.55)] ring-[9px] ring-verde-100/70 md:h-20 md:w-20 md:text-2xl md:ring-[12px]'
+                        : 'h-11 w-11 border border-verde-200 bg-white text-base text-verde-600 hover:border-verde-500 hover:text-ouro-600 md:h-12 md:w-12',
                     )}
                   >
                     <span className="sr-only">Etapa {passo.numero}: </span>

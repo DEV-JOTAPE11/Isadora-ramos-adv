@@ -43,7 +43,7 @@ export function Indicador({
             r="48"
             fill="none"
             strokeWidth="1.5"
-            className={claro ? 'stroke-white/12' : 'stroke-esmeralda-100'}
+            className={claro ? 'stroke-white/12' : 'stroke-verde-100'}
           />
           <circle
             cx="54"
@@ -55,7 +55,7 @@ export function Indicador({
             /* 2πr = 301.6 — o mesmo valor está no globals.css como offset
                inicial, então o traço nasce completamente recolhido. */
             strokeDasharray="301.6"
-            className={`anel-indicador ${claro ? 'stroke-ouro-400' : 'stroke-ouro-500'}`}
+            className={`anel-indicador ${claro ? 'stroke-verde-400' : 'stroke-verde-500'}`}
           />
         </svg>
 
@@ -64,7 +64,7 @@ export function Indicador({
             valor={valor}
             atraso={atraso + 200}
             className={`font-display text-xl font-semibold tabular-nums sm:text-2xl md:text-3xl ${
-              claro ? 'text-white' : 'text-esmeralda-800'
+              claro ? 'text-white' : 'text-verde-800'
             }`}
           />
         </div>

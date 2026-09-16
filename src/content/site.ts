@@ -134,6 +134,22 @@ export const indicadores = [
   { valor: '100%', linha1: 'atendimento', linha2: 'personalizado' },
 ] as const;
 
+// ─────────────────────────────────────────────────────────── incerteza
+
+/** Card "Quando a Incerteza Encontra o Direito" — porte do projeto `alecsandra-resende-adv`. */
+export const incerteza = {
+  titulo: 'Quando a Incerteza',
+  tituloDestaque: 'Encontra o Direito',
+  paragrafo:
+    'Resolver uma questão jurídica pode ser uma jornada repleta de dúvidas e ' +
+    'incertezas, afetando sua segurança financeira, seu patrimônio e o bem-estar ' +
+    'da sua família. É nesse momento, entre o desânimo e a esperança, que muitos ' +
+    'chegam até nós. No escritório Isadora Ramos, transformamos desafios em ' +
+    'conquistas, guiando você com empatia e determinação rumo à solução que ' +
+    'merece. Porque aqui, sua história é nossa causa e o seu direito, nosso ' +
+    'compromisso.',
+} as const;
+
 // ─────────────────────────────────────────────────────────── abertura
 
 export const abertura = {

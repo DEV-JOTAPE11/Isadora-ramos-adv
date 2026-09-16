@@ -54,7 +54,7 @@ export function Atuacao() {
               as="h2"
               className="font-display text-[2rem] leading-[1.06] font-semibold tracking-tight text-tinta sm:text-5xl md:text-[3.25rem]"
             />
-            <p className="font-serif text-[2.1rem] leading-[1.08] font-light text-ouro-600 italic sm:text-5xl md:text-[3.4rem]">
+            <p className="font-destaque uppercase text-[2.1rem] leading-[1.08] text-ouro-600 sm:text-5xl md:text-[3.4rem]">
               {atuacao.tituloDestaque}
             </p>
           </div>
@@ -98,13 +98,13 @@ export function Atuacao() {
                   <a
                     href={area.href}
                     {...(externo ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                    className="flex h-full flex-col rounded-[28px] border border-esmeralda-100 bg-white p-8 transition-all duration-500 hover:-translate-y-1.5 hover:border-esmeralda-200 hover:shadow-[0_24px_60px_-28px_rgba(13,61,43,0.35)]"
+                    className="flex h-full flex-col rounded-[28px] border border-verde-100 bg-white p-8 transition-all duration-500 hover:-translate-y-1.5 hover:border-verde-200 hover:shadow-[0_24px_60px_-28px_rgba(27,36,18,0.35)]"
                   >
-                    <span className="mb-7 flex h-14 w-14 items-center justify-center rounded-2xl bg-esmeralda-50 text-esmeralda-600 transition-all duration-500 group-hover:bg-esmeralda-800 group-hover:text-ouro-300">
+                    <span className="mb-7 flex h-14 w-14 items-center justify-center rounded-2xl bg-verde-50 text-verde-600 transition-all duration-500 group-hover:bg-verde-800 group-hover:text-ouro-300">
                       <Icone className="h-7 w-7" aria-hidden="true" />
                     </span>
 
-                    <h3 className="mb-3 font-display text-xl font-semibold text-tinta transition-colors group-hover:text-esmeralda-700">
+                    <h3 className="mb-3 font-display text-xl font-semibold text-tinta transition-colors group-hover:text-verde-700">
                       {area.titulo}
                     </h3>
 
@@ -116,7 +116,7 @@ export function Atuacao() {
                       {area.exemplos.map((exemplo) => (
                         <li
                           key={exemplo}
-                          className="rounded-full bg-esmeralda-50 px-3 py-1 text-[11px] font-medium text-esmeralda-700"
+                          className="rounded-full bg-verde-50 px-3 py-1 text-[11px] font-medium text-verde-700"
                         >
                           {exemplo}
                         </li>
@@ -154,7 +154,7 @@ export function Atuacao() {
                 href={contato.whatsappAgendar}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative flex h-full flex-col justify-center overflow-hidden rounded-[28px] bg-esmeralda-900 p-8 transition-all duration-500 hover:-translate-y-1.5 hover:bg-esmeralda-800 md:p-10"
+                className="relative flex h-full flex-col justify-center overflow-hidden rounded-[28px] bg-verde-900 p-8 transition-all duration-500 hover:-translate-y-1.5 hover:bg-verde-800 md:p-10"
               >
                 <Image
                   src={ASSETS.monograma.src}
@@ -174,7 +174,7 @@ export function Atuacao() {
                   Se não for, indico quem possa ajudar. Nenhuma das duas respostas custa nada.
                 </p>
 
-                <span className="relative z-10 inline-flex items-center gap-2.5 self-start rounded-full border border-ouro-500/60 px-6 py-3 text-[11px] font-bold tracking-[0.2em] text-ouro-300 uppercase transition-all duration-500 group-hover:border-ouro-400 group-hover:bg-ouro-500/10">
+                <span className="relative z-10 inline-flex items-center gap-2.5 self-start rounded-full border border-verde-500/60 px-6 py-3 text-[11px] font-bold tracking-[0.2em] text-ouro-300 uppercase transition-all duration-500 group-hover:border-verde-400 group-hover:bg-verde-500/10">
                   <IconeWhatsApp className="h-4 w-4" aria-hidden="true" />
                   Falar no WhatsApp
                 </span>

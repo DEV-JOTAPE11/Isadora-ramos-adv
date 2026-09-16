@@ -53,6 +53,13 @@ export const ASSETS = {
     width: 600,
     height: 600,
   },
+  /** Arte do card "Incerteza", trazida de `alecsandra-resende-adv` (genérica, sem nome de escritório). */
+  balancaDignidade: {
+    src: '/images/balanca-dignidade.webp',
+    alt: 'Estátua dourada da Justiça com a inscrição Direito e Dignidade',
+    width: 1404,
+    height: 1191,
+  },
   estatua: {
     src: '/images/estatua-turquesa.webp',
     alt: '',

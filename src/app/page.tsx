@@ -8,6 +8,7 @@ import { CtaIntermediario } from '@/components/sections/CtaIntermediario';
 import { Depoimentos } from '@/components/sections/Depoimentos';
 import { Faq } from '@/components/sections/Faq';
 import { Hero } from '@/components/sections/Hero';
+import { Incerteza } from '@/components/sections/Incerteza';
 import { PorQue } from '@/components/sections/PorQue';
 import { Processo } from '@/components/sections/Processo';
 import { Sobre } from '@/components/sections/Sobre';
@@ -17,7 +18,7 @@ import { config } from '@/content/site';
 /**
  * Ordem das seções — a mesma do projeto `alecsandra-resende-adv`:
  *
- *   hero → abertura → serviços → sobre → por que → CTA → processo →
+ *   hero → abertura → incerteza → serviços → sobre → por que → CTA → processo →
  *   prova social → CTA final → FAQ → rodapé
  *
  * A lógica é alternar bloco claro e bloco escuro, e nunca deixar mais de duas
@@ -31,7 +32,7 @@ export default function Home() {
     <>
       <a
         href="#conteudo"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-100 focus:rounded-full focus:bg-esmeralda-800 focus:px-6 focus:py-3 focus:text-sm focus:text-white"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-100 focus:rounded-full focus:bg-verde-800 focus:px-6 focus:py-3 focus:text-sm focus:text-white"
       >
         Pular para o conteúdo
       </a>
@@ -41,6 +42,7 @@ export default function Home() {
       <main id="conteudo">
         <Hero />
         <Abertura />
+        <Incerteza />
         <Atuacao />
         <Sobre />
         <PorQue />

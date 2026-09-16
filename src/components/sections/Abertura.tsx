@@ -35,9 +35,9 @@ export function Abertura() {
               </p>
 
               <div className="mt-10 flex items-center gap-4">
-                <span aria-hidden="true" className="h-px w-12 bg-ouro-500/60" />
+                <span aria-hidden="true" className="h-px w-12 bg-verde-500/60" />
                 <div>
-                  <p className="font-serif text-xl font-light text-esmeralda-700 italic">
+                  <p className="font-display text-xl font-medium text-verde-700">
                     {abertura.assinatura}
                   </p>
                   <p className="text-[11px] tracking-[0.24em] text-grafite-claro uppercase">
@@ -54,7 +54,7 @@ export function Abertura() {
             Provimento 205/2021 da OAB veda em publicidade de advogado.
           */}
           <Revelar x={40} y={0} duracao={800} atraso={120}>
-            <div className="relative overflow-hidden rounded-shell border border-esmeralda-100 bg-esmeralda-50 p-6 sm:p-9 md:p-10">
+            <div className="relative overflow-hidden rounded-shell border border-verde-100 bg-verde-50 p-6 sm:p-9 md:p-10">
               <Image
                 src={ASSETS.balanca.src}
                 alt=""
@@ -64,11 +64,11 @@ export function Abertura() {
                 className="pointer-events-none absolute -top-10 -right-10 w-44 opacity-[0.06] select-none"
               />
 
-              <p className="relative z-10 font-serif text-[1.45rem] leading-snug font-light text-esmeralda-800 italic">
+              <p className="relative z-10 font-display text-[1.45rem] leading-snug font-medium text-verde-800">
                 Um escritório especializado em assessoria jurídica multidisciplinar.
               </p>
 
-              <div className="filete-ouro relative z-10 my-9" />
+              <div className="filete-verde relative z-10 my-9" />
 
               <div className="relative z-10 flex items-start justify-between gap-2 sm:gap-4">
                 {indicadores.map((ind, i) => (

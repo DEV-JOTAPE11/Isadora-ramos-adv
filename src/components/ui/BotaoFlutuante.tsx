@@ -35,7 +35,7 @@ export function BotaoFlutuante() {
       // existir visualmente.
       inert={!visivel}
       className={cn(
-        'pulso-verde fixed right-5 bottom-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-esmeralda-600 text-white shadow-[0_14px_34px_-8px_rgba(17,84,55,0.6)] transition-all duration-500 hover:bg-esmeralda-500 md:right-8 md:bottom-8 md:h-16 md:w-16',
+        'pulso-verde fixed right-5 bottom-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-verde-600 text-white shadow-[0_14px_34px_-8px_rgba(63,122,30,0.6)] transition-all duration-500 hover:bg-verde-500 md:right-8 md:bottom-8 md:h-16 md:w-16',
         visivel
           ? 'translate-y-0 scale-100 opacity-100'
           : 'pointer-events-none translate-y-6 scale-90 opacity-0',

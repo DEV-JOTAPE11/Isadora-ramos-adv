@@ -19,7 +19,7 @@ export function Acordeao({ itens }: { itens: readonly Item[] }) {
   const id = useId();
 
   return (
-    <div className="divide-y divide-esmeralda-100">
+    <div className="divide-y divide-verde-100">
       {itens.map((item, i) => {
         const estaAberto = aberto === i;
         const idBotao = `${id}-btn-${i}`;
@@ -39,7 +39,7 @@ export function Acordeao({ itens }: { itens: readonly Item[] }) {
                 <span
                   className={cn(
                     'font-display text-lg font-medium transition-colors md:text-xl',
-                    estaAberto ? 'text-esmeralda-700' : 'text-tinta group-hover:text-esmeralda-600',
+                    estaAberto ? 'text-verde-700' : 'text-tinta group-hover:text-verde-600',
                   )}
                 >
                   {item.pergunta}
@@ -50,8 +50,8 @@ export function Acordeao({ itens }: { itens: readonly Item[] }) {
                   className={cn(
                     'mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-all duration-500',
                     estaAberto
-                      ? 'rotate-45 border-esmeralda-700 bg-esmeralda-700 text-white'
-                      : 'border-esmeralda-200 text-esmeralda-600 group-hover:border-ouro-500 group-hover:text-ouro-600',
+                      ? 'rotate-45 border-verde-700 bg-verde-700 text-white'
+                      : 'border-verde-200 text-verde-600 group-hover:border-verde-500 group-hover:text-ouro-600',
                   )}
                 >
                   <Plus size={17} />

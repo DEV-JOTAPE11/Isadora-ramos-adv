@@ -1,46 +1,43 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, Outfit, Cormorant_Garamond } from 'next/font/google';
+import { Anton, Barlow, Barlow_Condensed } from 'next/font/google';
 import { contato, marca, seo } from '@/content/site';
 import './globals.css';
 
 /*
- * MESMO TRIO TIPOGRÁFICO DO PROJETO `lp-adv`:
- *   Outfit           → títulos (geométrica, autoritária sem ser dura)
- *   Inter            → corpo de texto e interface
- *   Cormorant Garamond → destaques em itálico (conversa com o logotipo dourado,
- *                        que é uma serifada de alto contraste)
+ * TRIO TIPOGRÁFICO DO PROJETO `Fruity-main`:
+ *   Barlow Condensed → títulos (condensada, firme, moderna)
+ *   Barlow           → corpo de texto e interface
+ *   Anton            → destaques em caixa-alta (a 2ª linha dos títulos)
  *
- * Outfit e Inter são variáveis: omitir `weight` faz o next/font servir UM
- * arquivo por família cobrindo toda a faixa de pesos, em vez de quatro
- * estáticos cada. São 2 requisições no caminho crítico em vez de 8.
+ * Barlow e Barlow Condensed não são variáveis no Google Fonts: cada peso é um
+ * arquivo, então só entram os pesos que a página usa. O @font-face só baixa a
+ * face que algum texto de fato renderiza.
  */
-const outfit = Outfit({
+const barlowCondensed = Barlow_Condensed({
   subsets: ['latin'],
-  variable: '--fonte-outfit',
+  weight: ['500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--fonte-barlow-condensed',
   display: 'swap',
   preload: true, // fonte do H1 do hero
 });
 
-const inter = Inter({
+const barlow = Barlow({
   subsets: ['latin'],
-  variable: '--fonte-inter',
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--fonte-barlow',
   display: 'swap',
   preload: true, // o parágrafo do hero costuma ser o elemento LCP
 });
 
-/*
- * Cormorant só aparece nos destaques itálicos das seções. As quatro faces do
- * produto cartesiano são declaradas, mas o @font-face só baixa a que algum
- * texto renderiza — na prática, uma. Sem preload: pôr uma face decorativa no
- * caminho crítico custaria mais do que o swap que ela evita.
- */
-const cormorant = Cormorant_Garamond({
+/* Anton só existe no peso 400 — é a face de impacto dos destaques. */
+const anton = Anton({
   subsets: ['latin'],
-  weight: ['300', '600'],
-  style: ['normal', 'italic'],
-  variable: '--fonte-cormorant',
+  weight: '400',
+  variable: '--fonte-anton',
   display: 'swap',
-  preload: false,
+  preload: true, // 2ª linha do H1 do hero
 });
 
 export const metadata: Metadata = {
@@ -92,7 +89,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#05170f',
+  themeColor: '#0a0d07',
 };
 
 const ENDERECO = {
@@ -162,7 +159,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="pt-BR"
-      className={`${outfit.variable} ${inter.variable} ${cormorant.variable}`}
+      className={`${barlowCondensed.variable} ${barlow.variable} ${anton.variable}`}
       suppressHydrationWarning
     >
       <body className="bg-white">
